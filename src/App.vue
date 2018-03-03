@@ -74,6 +74,7 @@ export default {
      'slide': Slide
   },
   beforeMount() {
+    //had to do this due to CORS issue, this is a quick solution i am aware of.
     this.$http.get("https://cors-anywhere.herokuapp.com/http://partnerapi.funda.nl/feeds/Aanbod.svc/json/detail/005e7c1d6f6c4f9bacac16760286e3cd/koop/6289a7bb-a1a8-40d5-bed1-bff3a5f62ee6/").then(function(data){
       this.houseData = data;
       this.populateMapData(this.houseData.data.WGS84_Y, this.houseData.data.WGS84_X);
